@@ -17,6 +17,15 @@ console.log(today);
 today = mm + "/" + dd + "/" + yy;
 console.log(today);
 
+// adding level
+if (mm < 10) {
+  mm = "0" + mm;
+}
+// adding level
+if (dd < 10) {
+  dd = "0" + dd;
+}
+
 // Format the date as dd/mm/yyyy and log it
 today = dd + "/" + mm + "/" + yy;
 console.log(today);
