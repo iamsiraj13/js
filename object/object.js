@@ -24,4 +24,6 @@ var obj2 = Object({
   name: "sirajul",
 });
 obj2.x = 100;
+obj2.X = 200;
+obj2.x = null;
 console.log(obj2);
