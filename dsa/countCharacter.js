@@ -8,21 +8,22 @@
  * will it accept number??
  * what about null or empty?
  *
+ * time complexity Big O(n)
+ * space complexity Bin O(n)
  */
 
 function countCharacter(str) {
   // creating an object for tracking the frequency of element
   const hashmap = {};
-  const normalize = str.toLowerCase();
+  const normalize = str.toLowerCase().replaceAll(" ", "");
 
   // looping the input and generalize the case
   for (let i = 0; i < normalize.length; i++) {
     // if there is any space escape it
-    if (normalize[i] === " ") continue;
-
-    hashmap[normalize[i]]
-      ? (hashmap[normalize[i]] += 1)
-      : (hashmap[normalize[i]] = 1);
+    // if (normalize[i] === " ") continue;
+    const char = normalize[i];
+    // ternary
+    hashmap[char] = (hashmap[char] || 0) + 1;
   }
 
   return hashmap;
