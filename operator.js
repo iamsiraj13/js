@@ -1,4 +1,7 @@
-var a = "50";
-var b = 50;
+// set date method
 
-console.log(a == b);
+const date = new Date();
+
+date.setFullYear(2022);
+
+console.log(date.getDate() + 10);
