@@ -28,3 +28,7 @@ function revstr2(str) {
   return rev;
 }
 console.log(revstr2("Hello"));
+
+// method 3
+const str3 = "hello";
+console.log(str3.split("").reverse().join(""));
