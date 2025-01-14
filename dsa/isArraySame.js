@@ -7,7 +7,7 @@
  *
  *
  *  time complexity
- * O(n * (m + n)) -> O(n * n)
+ * O(n * (m + n)) -> O(n * n) -> O(n^2)
  *
  * space complexity O(1)
  */
@@ -34,3 +34,32 @@ console.log(isSame([1, 2, 4, 1], [1, 4, 5, 2]));
 // 2 -2 (remove 2) [4, 5]
 // 4 -4 (remove 4) [5]
 // 5 -5 (remove 5) []
+
+function isSame2(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false;
+
+  const hashTable = {};
+  const hashTable2 = {};
+
+  for (let num of arr1) {
+    hashTable[num] = (hashTable[num] || 0) + 1;
+  }
+
+  console.log(hashTable);
+
+  for (let num of arr2) {
+    hashTable2[num] = (hashTable2[num] || 0) + 1;
+  }
+
+  for (let elm in hashTable) {
+    console.log(elm);
+    if (!elm in hashTable2 || hashTable[elm] !== hashTable2[elm]) {
+      return false;
+    }
+  }
+  return true;
+
+  console.log({ hashTable }, { hashTable2 });
+}
+
+console.log(isSame2([1, 2, 4, 5], [1, 4, 5, 2]));
