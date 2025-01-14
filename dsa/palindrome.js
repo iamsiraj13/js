@@ -1,33 +1,19 @@
 /**
- * --Directions
- * Given a string, return the character that is most commonly used in the string
+ *  check provided string/number is palindrome or not
  *
- * --- Example
- * maxChar(abccccd);
+ *  if palindrome return true otherwise false
+ *  non-alphanumeric character should be ignored
+ *  -- example "race car" output ""
  */
-let str = "abc    cccd";
-function maxChar(str) {
-  let hashmap = {};
 
-  let maxChar = "";
-  let count = 0;
-  for (let char of str) {
-    if (char === " ") {
-      continue;
-    }
-    hashmap[char] = (hashmap[char] || 0) + 1;
-  }
+function palindrom(str) {
+  const regex = /[\W_]/g;
+  // normalize non alpha-numeric character with regex
+  const normalizeStr = str.toLowerCase().replace(regex, "");
+  const reverseStr = normalizeStr.split("").reverse().join("");
 
-  console.log(hashmap);
-
-  for (char in hashmap) {
-    if (hashmap[char] > count) {
-      count = hashmap[char];
-      maxChar = char;
-    }
-  }
-  console.log(maxChar);
-  console.log(max);
-  return { maxChar, count };
+  return normalizeStr === reverseStr;
 }
-console.log(maxChar(str));
+
+console.log(palindrom("hello"));
+console.log(palindrom("2002"));
