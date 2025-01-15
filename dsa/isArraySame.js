@@ -57,9 +57,8 @@ function isSame2(arr1, arr2) {
       return false;
     }
   }
-  return true;
-
   console.log({ hashTable }, { hashTable2 });
+  return true;
 }
 
 console.log(isSame2([1, 2, 4, 5], [1, 4, 5, 2]));
