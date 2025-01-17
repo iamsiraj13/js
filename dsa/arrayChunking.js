@@ -12,14 +12,13 @@ function chunk(arr, size) {
 
   for (let elm of arr) {
     const last = chunk[chunk.length - 1];
-    console.log(last);
 
-    if (last && last < 3) {
+    if (last && last < size) {
       last.push(elm);
     } else {
       chunk.push([elm]);
     }
   }
-  console.log(chunk);
+  return chunk;
 }
-chunk([1, 2, 3, 4, 5], 3);
+console.log(chunk([1, 2, 3, 4, 5], 3));
