@@ -12,7 +12,20 @@
 const nums = [1, 2, 3];
 const k = 3;
 
-function subArraySum(num, k) {
-  console.log(nums);
+function subarraySum(num, k) {
+  let hashtable = {
+    0: 1,
+  };
+
+  let sum = 0;
+  let result = 0;
+  for (let i = 0; i < num.length; i++) {
+    sum += num[i];
+    if (hashtable[sum - k] in hashtable) {
+      result += hashtable[sum - k];
+    }
+    hashtable[sum] = (hashtable[sum] || 0) + 1;
+  }
+  return result;
 }
-console.log(subArraySum(nums, k));
+subarraySum(nums, k);
