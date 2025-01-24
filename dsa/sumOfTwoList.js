@@ -15,6 +15,13 @@ function findRestaurant(list1, list2) {
   const indexMap = new Map(); // Store the index of strings in list1
   const result = [];
   let minIndexSum = Infinity; // Initialize with a very large value
+  let hashmap = {};
+
+  for (let i = 0; i < list1.length; i++) {
+    let char = list1[i];
+    hashmap[char] = (i || 0) + 1;
+  }
+  console.log(hashmap);
 
   // Populate the map with strings from list1 and their indices
   for (let i = 0; i < list1.length; i++) {
