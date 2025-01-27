@@ -19,12 +19,6 @@ const needle = "jul";
 
 // const haystack = "leetcode";
 // const needle = "leeto";
-/**
- * time complexity O(n*m)
- * space complexity O(1)
- * String search inside string
- *
- */
 var strStr = function (haystack, needle) {
   if (needle === 0) return 0;
 
