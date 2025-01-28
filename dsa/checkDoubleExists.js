@@ -24,6 +24,21 @@ Explanation: There is no i and j that satisfy the conditions.
 //      i j           i =0; j=1  10 === j*2 // ture / false
 const arr = [7, 1, 14, 11];
 
+function checkex(arr) {
+  let hashmap = {};
+  for (let i = 0; i < arr.length; i++) {
+    let char = arr[i];
+    hashmap[char] = (hashmap[char] || 0) + 1;
+  }
+
+  for (let elm in hashmap) {
+    console.log(elm);
+  }
+  console.log(hashmap);
+}
+
+console.log(checkex(arr));
+
 function checkIfExist(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
