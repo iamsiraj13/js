@@ -33,3 +33,5 @@ var strStr = function (haystack, needle) {
 };
 
 console.log(strStr(haystack, needle));
+
+// kmp algorithm

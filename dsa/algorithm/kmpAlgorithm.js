@@ -1,11 +1,9 @@
 /**
  * @kmpAlgorightm
  */
+
 function computeLPSArray(pattern) {
-  console.log(pattern);
-  //   console.log(pattern.split("").fill(0));
   const lps = new Array(pattern.length).fill(0);
-  console.log(lps);
   let len = 0; // Length of the previous longest prefix suffix
   let i = 1;
 
@@ -14,7 +12,6 @@ function computeLPSArray(pattern) {
       len++;
       lps[i] = len;
       i++;
-      console.log(lps);
     } else {
       if (len !== 0) {
         len = lps[len - 1];
@@ -24,10 +21,41 @@ function computeLPSArray(pattern) {
       }
     }
   }
+  console.log(lps);
   return lps;
 }
+
+function KMPSearch(text, pattern) {
+  const M = pattern.length;
+  const N = text.length;
+
+  // Create LPS array
+  const lps = computeLPSArray(pattern);
+
+  let i = 0; // Index for text
+  let j = 0; // Index for pattern
+
+  while (i < N) {
+    if (pattern[j] === text[i]) {
+      i++;
+      j++;
+    }
+
+    if (j === M) {
+      console.log(`Pattern found at index ${i - j}`);
+      j = lps[j - 1];
+    } else if (i < N && pattern[j] !== text[i]) {
+      if (j !== 0) {
+        j = lps[j - 1];
+      } else {
+        i++;
+      }
+    }
+  }
+}
+
 // Example usage:
 const text = "ABABDABACDABABCABAB";
 const pattern = "ABABCABAB";
 
-console.log(computeLPSArray(pattern));
+// console.log(KMPSearch(text, pattern));
