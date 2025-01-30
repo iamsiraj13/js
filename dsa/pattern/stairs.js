@@ -24,7 +24,7 @@ function steps(n) {
     let step = "";
     for (let col = 0; col < n; col++) {
       if (col <= row) {
-        step += "#";
+        step += "1";
       } else {
         step += "-";
       }
@@ -33,3 +33,9 @@ function steps(n) {
   }
 }
 console.log(steps(6));
+
+let n = 5;
+for (let i = 1; i <= n; i++) {
+  let str = "#";
+  console.log(str.repeat(i));
+}
