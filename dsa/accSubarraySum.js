@@ -15,7 +15,7 @@ function maxAscendingSum(nums) {
 
   return maxSum;
 }
-
+33;
 // **উদাহরণ রান:**
 const arr = [12, 17, 15, 13, 10, 11, 12];
 console.log(maxAscendingSum(arr)); // Output: 65 (সাব-অ্যারে: [5, 10, 50])
