@@ -31,6 +31,10 @@ function add(n) {
 }
 console.log(add(5));
 
+/**
+ * Time complexity O(n)
+ * Space complexity O(n)
+ */
 function sumRange(num) {
   if (num === 0) return 0;
 
@@ -38,3 +42,21 @@ function sumRange(num) {
 }
 
 console.log(sumRange(10));
+
+/**
+ * Itterative solution
+ * Impure recursive function
+ */
+
+function createRange(num1, num2) {
+  let rangeArr = [];
+  function helper(helperInput, target = 20) {
+    rangeArr.push(helperInput);
+    if (helperInput === target) return target;
+    helper(helperInput + 1, target);
+  }
+
+  helper(num1, num2);
+  return rangeArr;
+}
+// console.log(createRange(10, 20));
