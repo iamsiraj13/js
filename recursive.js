@@ -30,3 +30,11 @@ function add(n) {
   return n + add(n - 1);
 }
 console.log(add(5));
+
+function sumRange(num) {
+  if (num === 0) return 0;
+
+  return num + sumRange(num - 1);
+}
+
+console.log(sumRange(10));
