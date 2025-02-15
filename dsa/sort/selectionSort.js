@@ -8,7 +8,9 @@ function selSort(arr) {
         lowest = j;
       }
     }
-    [arr[i], arr[lowest]] = [arr[lowest], arr[i]];
+    if (i !== lowest) {
+      [arr[i], arr[lowest]] = [arr[lowest], arr[i]];
+    }
   }
 
   return arr;
