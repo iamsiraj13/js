@@ -1,0 +1,10 @@
+console.log(typeof NaN);
+console.log(typeof [1, 2, 3, 5]);
+console.log(typeof { name: "sirajul" });
+console.log(typeof function () {});
+console.log(typeof undefined);
+console.log(typeof null);
+console.log(typeof "");
+console.log(typeof 13);
+console.log(typeof false);
+console.log(typeof new Date());
