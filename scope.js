@@ -1,19 +1,8 @@
-"Strict Mode";
-
-// scope
-
+function scopes() {
+  var x = "x from scope";
+}
+scopes();
 if (true) {
-  var x = "from if block";
+  var x = "hello";
 }
-
-function a() {
-  var x = "from a function";
-  console.log(x);
-}
-function b() {
-  x = "from b function";
-  console.log(x);
-}
-a();
-b();
 console.log(x);
