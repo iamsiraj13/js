@@ -7,14 +7,15 @@
 html {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-body {
+/* body {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.btn-group {
+  position: relative;
+} */
+/* .btn-group {
   display: flex;
 }
 .btn {
@@ -51,4 +52,51 @@ body {
 
 .btn:hover:not(:last-child)::after {
   background-color: blue;
+} */
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.alert {
+  /* transform: translate(-50%, -50%); */
+  z-index: 99;
+  width: 400px;
+  height: 400px;
+  background-color: #1b1a1a;
+  display: none;
+  animation-name: box;
+  animation-duration: 1s;
+  background-origin: content-box;
+  animation-timing-function: ease-in-out;
+}
+@keyframes box {
+  from {
+    top: 40%;
+    transform: scale(0);
+  }
+  to {
+    top: 50%;
+    transform: scale(1);
+  }
+}
+.alert h2 {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin-top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;} 
+*/

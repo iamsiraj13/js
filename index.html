@@ -9,11 +9,20 @@
 </head>
 
 <body>
-    <div class="btn-group">
-        <button class="btn">Button</button>
-        <button class="btn">Button</button>
-        <button class="btn">Button</button>
-    </div>
+    <main>
+        <div class="alert" id="box">
+            <h2>Alert box</h2>
+        </div>
+        <button id="btn">Click Here</button>
+    </main>
+    <script>
+        document.getElementById("btn").addEventListener("click", function () {
+            setTimeout(function () {
+                document.getElementById("box").style.display = "block"
+                document.getElementById("btn").style.display = "none"
+            })
+        })
+    </script>
 </body>
 
 </html>
