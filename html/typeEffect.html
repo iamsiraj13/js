@@ -27,13 +27,26 @@
 
     </div>
     <script>
-        let text = "Welcome To Bangladesh"
-        let textbox = document.getElementById("message")
-        for (let i = 0; i < text.length; i++) {
-            setTimeout(function () {
-                textbox.textContent += text[i]
-            }, i * 400)
+        let text = "Welcome To Bangladesh";
+        let textbox = document.getElementById("message");
+        let index = 0;
+
+        function animateText() {
+            textbox.textContent = ""; // Clear text before restarting
+            index = 0;
+
+            let interval = setInterval(() => {
+                if (index < text.length) {
+                    textbox.textContent += text[index];
+                    index++;
+                } else {
+                    clearInterval(interval); // Stop current animation
+                    setTimeout(animateText, 1000); // Restart after 1s delay
+                }
+            }, 400);
         }
+
+        animateText();
     </script>
 </body>
 
