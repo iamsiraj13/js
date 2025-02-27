@@ -1,29 +1,19 @@
-// objects
+const person = {
+  fname: "Sirajul",
+  lname: "Islam",
+  language: "en",
 
-/**
- * student 1
- * math: 80
- * chemistry: 75
- * physics: 56
- * higher math: 90
- */
+  get fullname() {
+    return this.fname + " " + this.lname
+  },
+  set elangu(ln) {
+    this.language = ln
+  },
+  set olan(fn) {
+    this.language = fn
+  }
+}
 
-// [ 80, 75 , 86, 90 ]
-var obj = {
-  x: 10,
-};
+console.log(person.language)
 
-console.log(obj["x"]);
-
-obj.x = 20;
-console.log(obj);
-
-/*---------*/
-
-var obj2 = Object({
-  name: "sirajul",
-});
-obj2.x = 100;
-obj2.X = 200;
-obj2.x = null;
-console.log(obj2);
+console.log(person.fullname)
