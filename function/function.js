@@ -24,9 +24,14 @@ function addall() {
   var arr = Object.values(arguments);
   var result = 0;
   for (elm of arr) {
-    result += elm;
+    console.log(elm)
   }
-  console.log(result);
+  // console.log(result);
 }
 
-addall(1, 2, 3, 4, 5, 6, 7);
+addall(10, 2, 3, 4, 5, 6, 7);
+
+function a(b, c) {
+  console.log(6 * c)
+}
+a(2)

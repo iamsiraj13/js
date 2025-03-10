@@ -11,7 +11,6 @@ let person = {
     getName: () => {
         return person.name
     }
-
 }
 
 console.log(person.city)
