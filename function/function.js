@@ -35,3 +35,28 @@ function a(b, c) {
   console.log(6 * c)
 }
 a(2)
+
+function findMax() {
+  let max = -Infinity;
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] > max) {
+      max = arguments[i]
+    }
+  }
+  console.log(max)
+}
+
+
+findMax(100, 20, 42, 41, 545)
+
+
+function siraj(x) {
+  return x.one = 0
+  // console.log(x)
+}
+
+let m = {
+  one: 200
+}
+siraj(m)
+console.log(m)
