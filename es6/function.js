@@ -21,7 +21,7 @@ var javascript = {
 
 console.log(javascript.print());
 
-function Person=(name)=> {
+function Person(name) {
   this.name = name;
 }
 var sakib = new Person("sakib");
