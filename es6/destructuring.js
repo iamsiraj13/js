@@ -16,8 +16,12 @@ console.log(education);
 
 // swap using destructring
 
-let a = 1;
-let b = 2;
+export let a = 1;
+export let b = 2;
 
 [b, a] = [a, b];
 console.log(a, b);
+
+export function hello() {
+  return "hello from destructuring";
+}

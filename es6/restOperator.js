@@ -1,8 +1,11 @@
+import { a, b, hello } from "./destructuring.js";
 // rest operator
-
 function op(...rest) {
   console.log(a, b, ...rest);
   console.log(arguments);
 }
 
-op("Sirajul", 20, "student", "valobasa");
+console.log(hello());
+console.log(a, b);
+
+console.log("Hello");

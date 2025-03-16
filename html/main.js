@@ -1,10 +1,12 @@
-let button = document.querySelector("#btn");
+var num1 = 2;
 
-const myCollection = document.getElementsByTagName("p");
-function myfunc() {
-  console.log(myCollection);
-  for (let i = 0; i < myCollection.length; i++) {
-    myCollection[i].style.color = "blue";
-  }
-}
-button.addEventListener("click", myfunc);
+var sum = function () {
+  var num2 = 3;
+  return function () {
+    return num1 + num2;
+  };
+};
+
+var myFunc = sum();
+
+console.dir(myFunc);
