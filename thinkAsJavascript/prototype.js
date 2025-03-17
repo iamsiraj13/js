@@ -1,14 +1,14 @@
-// const personMethods = {
-//   eat() {
-//     console.log("person is eating");
-//   },
-//   sleep() {
-//     console.log("i am sleeping");
-//   },
-//   play() {
-//     console.log("person is playing");
-//   },
-// };
+const personMethods = {
+  eat() {
+    console.log("person is eating");
+  },
+  sleep() {
+    console.log("i am sleeping");
+  },
+  play() {
+    console.log("person is playing");
+  },
+};
 
 Person.prototype = {
   eat() {
