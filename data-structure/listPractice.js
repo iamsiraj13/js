@@ -1,4 +1,4 @@
-class Arr {
+class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
@@ -6,50 +6,70 @@ class Arr {
 }
 
 class List {
-  constructor(value) {
-    const newNode = new Arr(value);
-    this.head = newNode;
-    this.tail = newNode;
-    this.length = 1;
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+  // checking list is empty or not
+
+  isEmpty() {
+    return this.length === 0;
   }
 
   // adding node end of the list
-
   push(value) {
-    const newNode = new Arr(value);
-    this.tail.next = newNode;
-    this.tail = newNode;
+    const node = new Node(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+    }
+    this.length++;
+  }
+  // adding node start of the list
+  push(value) {
+    const node = new Node(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+    }
     this.length++;
   }
   // adding node beggining of the list
   unshift(value) {
-    const newNode = new Arr(value);
-    newNode.next = this.head;
-    this.head = newNode;
+    const node = new Node(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
     this.length++;
   }
-  findMiddle() {
-    let slow = this.head;
-    let fast = this.head;
-
-    while (fast && fast.next) {
-      slow = slow.next; // Slow 1 ধাপ এগোয়
-      fast = fast.next.next; // Fast 2 ধাপ এগোয়
+  pop() {
+    if (!this.head) {
+      return null;
     }
-
-    return slow.value; // Middle নোডের ভ্যালু রিটার্ন করবো
+    if (this.length === 1) {
+      let removeNode = this.head;
+      this.head = null;
+      this.tail = null;
+      this.length = 0;
+      return removeNode;
+    }
   }
 }
 
-const node = new List(10);
-node.push(100);
-node.push(200);
-node.push(300);
-node.push(400);
-node.push(500);
-node.unshift("hello");
-node.unshift("world");
-node.unshift("bangladesh");
-console.log(node.findMiddle());
+let list = new List();
 
-console.log(node);
+list.push(100);
+list.push(500);
+list.pop();
+console.log(list);
