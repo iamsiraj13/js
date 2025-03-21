@@ -20,3 +20,14 @@ var play1 = printName.call(sakib, v1, v2, v3);
 var play2 = printName.apply(sakib, v);
 var play3 = printName.bind(sakib, v1, v2, v3);
 play3();
+
+var PrintName = function () {
+  console.log(this.name);
+  console.log(this);
+};
+
+var siraj = {
+  name: "sirajul",
+};
+
+PrintName();
