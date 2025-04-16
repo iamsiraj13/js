@@ -1,6 +1,9 @@
 /**
  *
- * Write a program that prints the number from 1 to 100. But for multiples of three print Fizz insted of the number and for multiples of the five print "Buzz"  for number which are multiples of both three and five print "FizzBuzz"
+ * Write a program that prints the number from 1 to 100. But for multiples 
+ * of three print Fizz insted of the number and for multiples of the five 
+ * print "Buzz"  for number which are multiples of both three and five print
+ *  "FizzBuzz"
  */
 
 function fizzbuzz() {

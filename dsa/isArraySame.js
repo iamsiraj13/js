@@ -30,6 +30,12 @@ function isSame(arr1, arr2) {
 
 console.log(isSame([1, 2, 4, 1], [1, 4, 5, 2]));
 
+/**
+ * arr1  এর প্রতিটা ভ্যালু arr2  তে indexOf  এর মাধ্যমে চেক করব।
+ * যদি indexOf -1 return  করে । তার মানে এখানে ঐ মান টা পাওয়া যায় নাই।
+ *
+ */
+
 // 1 -1 (remove 1) [4, 5, 2]
 // 2 -2 (remove 2) [4, 5]
 // 4 -4 (remove 4) [5]
@@ -45,19 +51,15 @@ function isSame2(arr1, arr2) {
     hashTable[num] = (hashTable[num] || 0) + 1;
   }
 
-  console.log(hashTable);
-
   for (let num of arr2) {
     hashTable2[num] = (hashTable2[num] || 0) + 1;
   }
 
   for (let elm in hashTable) {
-    console.log(elm);
-    if (!elm in hashTable2 || hashTable[elm] !== hashTable2[elm]) {
+    if (!(elm in hashTable2) || hashTable[elm] !== hashTable2[elm]) {
       return false;
     }
   }
-  console.log({ hashTable }, { hashTable2 });
   return true;
 }
 
