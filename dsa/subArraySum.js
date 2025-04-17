@@ -1,5 +1,7 @@
 /**
- * Given an array of inteagers nums and an integer k, return the total number of sub arrays whose sum equals to k. A sub array is a contiguous not-empty sequence of elements within an array
+ * Given an array of inteagers nums and an integer k, return the total number
+ * of sub arrays whose sum equals to k. A sub array is a contiguous not-empty
+ * sequence of elements within an array
  *
  * example
  * input: nums = [1,1,1] k = 2
@@ -9,23 +11,54 @@
  * output 2
  */
 
+
+
+
+
+
+
 const nums = [1, 2, 3];
 const k = 3;
 
-function subarraySum(num, k) {
-  let hashtable = {
+
+/*
+count = 0
+[1,2] = 3 count -> 1
+[1,2,3] != 3 count ->1
+[2,3] !=3 count -> 1
+[3]  =3 count 2
+*/
+let count = 0;
+for (let i = 0; i < nums.length; i++) {
+  let sum = 0;
+  for (let j = i; j < nums.length; j++) {
+    sum += nums[j];
+    if (sum === k) {
+      count++;
+    }
+  }
+}
+
+let arr = [1, 2, 3];
+function subArray(arr, k) {
+  const hasmap = {
     0: 1,
   };
-
+  let count = 0;
   let sum = 0;
-  let result = 0;
-  for (let i = 0; i < num.length; i++) {
-    sum += num[i];
-    if (hashtable[sum - k] in hashtable) {
-      result += hashtable[sum - k];
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+
+    if ([sum - k] in hasmap) {
+      console.log(hasmap[sum - k]);
+      count++;
     }
-    hashtable[sum] = (hashtable[sum] || 0) + 1;
+    hasmap[sum] = (hasmap[sum] || 0) + 1;
   }
-  return result;
+  console.log(hasmap);
+  return count;
 }
-subarraySum(nums, k);
+
+console.log(subArray(arr, 3));
+
+console.log(count);
