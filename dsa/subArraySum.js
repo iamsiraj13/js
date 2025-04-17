@@ -11,15 +11,8 @@
  * output 2
  */
 
-
-
-
-
-
-
 const nums = [1, 2, 3];
 const k = 3;
-
 
 /*
 count = 0

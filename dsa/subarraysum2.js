@@ -14,17 +14,16 @@
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const k = 9;
 function subarray(nums, k) {
+  let map = { 0: 1 };
   let count = 0;
-
+  let sum = 0;
   for (let i = 0; i < nums.length; i++) {
-    let sum = 0;
-    for (let j = i; j < nums.length; j++) {
-      sum += nums[j];
-      if (sum === k) {
-        count++;
-      }
+    sum += nums[i];
+    if ([sum - k] in map) {
+      count++;
     }
+    map[sum] = (map[sum] || 0) + 1;
   }
-  console.log(count);
+  return count;
 }
 console.log(subarray(nums, k));

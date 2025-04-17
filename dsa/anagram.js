@@ -10,6 +10,7 @@ function isAnagram(s, t) {
   for (char of normalizeS) {
     hashmap[char] = (hashmap[char] || 0) + 1;
   }
+  console.log(hashmap);
   for (char of normalizeT) {
     if (!hashmap[char]) return false;
     hashmap[char]--;
