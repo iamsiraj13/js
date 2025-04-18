@@ -22,7 +22,9 @@ const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 function groupAnagrams(strs) {
   const ht = {};
   for (let elm of strs) {
+    console.log(elm);
     const sorted = elm.split("").sort().join(""); // Sort the string
+    console.log(sorted);
     if (ht[sorted]) {
       ht[sorted].push(elm); // Add to the existing group
     } else {

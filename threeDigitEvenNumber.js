@@ -28,52 +28,6 @@ Explanation: No even integers can be formed using the given digits.
 
 const digits = [2, 1, 3, 0];
 var findEvenNumbers = function (digits) {
-  let hasmap = new Map();
-  for (let i = 0; i < digits.length; i++) {
-    if (hasmap.has(digits[i])) {
-      hasmap.set(digits[i], 1 + hasmap.get(digits[i])); // If the key is already present, increment its frequency
-    } else {
-      hasmap.set(digits[i], 1); // Else, its frequency will be one
-    }
-  }
-  console.log(hasmap);
-  let arr = [];
-  for (let i = 100; i < 1000; i += 2) {
-    // Finding out which even digits can be formed using the elements of the array
-
-    let x = i;
-
-    let a = x % 10; // Extracting first digit
-
-    x = x / 10;
-    let b = x % 10; // Extracting second digit
-
-    x = x / 10;
-    let c = x; // Third digit
-
-    if (hasmap.has(a) && hasmap.get(a) > 0) {
-      hasmap.set(a, hasmap.get(a) - 1);
-      if (hasmap.has(b) && hasmap.get(b) > 0) {
-        hasmap.set(b, hasmap.get(b) - 1);
-        if (hasmap.has(c) && hasmap.get(c) > 0) {
-          hasmap.set(c, hasmap.get(c) - 1);
-          arr.push(i);
-          hasmap.set(c, hasmap.get(c) + 1);
-        }
-        hasmap.set(b, hasmap.get(b) + 1);
-      }
-      hasmap.set(a, hasmap.get(a) + 1);
-    }
-  }
-  let ans = arr.length;
-  for (let i = 0; i < arr.length; i++) {
-    ans[i] = arr[i];
-  }
-  return ans;
-};
-
-// console.log(findEvenNumbers(digits));
-var findEvenNumbers = function (digits) {
   const result = new Array();
   const repeats = new Array(10).fill(0);
 
@@ -113,41 +67,41 @@ var findEvenNumbers = function (digits) {
 
 console.log(findEvenNumbers(digits));
 
-var findEvenNumbers2 = function (digits) {
-  // Create a frequency map for digits
-  let hashmap = new Map();
-  for (let digit of digits) {
-    hashmap.set(digit, (hashmap.get(digit) || 0) + 1);
-  }
+// var findEvenNumbers2 = function (digits) {
+//   // Create a frequency map for digits
+//   let hashmap = new Map();
+//   for (let digit of digits) {
+//     hashmap.set(digit, (hashmap.get(digit) || 0) + 1);
+//   }
 
-  let result = [];
-  // Check all even numbers from 100 to 999
-  for (let i = 100; i < 1000; i += 2) {
-    // Extract digits
-    let x = i;
-    let a = x % 10; // First digit
-    x = Math.floor(x / 10);
-    let b = x % 10; // Second digit
-    x = Math.floor(x / 10);
-    let c = x; // Third digit
+//   let result = [];
+//   // Check all even numbers from 100 to 999
+//   for (let i = 100; i < 1000; i += 2) {
+//     // Extract digits
+//     let x = i;
+//     let a = x % 10; // First digit
+//     x = Math.floor(x / 10);
+//     let b = x % 10; // Second digit
+//     x = Math.floor(x / 10);
+//     let c = x; // Third digit
 
-    // Create a copy of the frequency map for this number
-    let tempMap = new Map(hashmap);
+//     // Create a copy of the frequency map for this number
+//     let tempMap = new Map(hashmap);
 
-    // Check if we can form the number using available digits
-    if (tempMap.has(a) && tempMap.get(a) > 0) {
-      tempMap.set(a, tempMap.get(a) - 1);
-      if (tempMap.has(b) && tempMap.get(b) > 0) {
-        tempMap.set(b, tempMap.get(b) - 1);
-        if (tempMap.has(c) && tempMap.get(c) > 0) {
-          result.push(i);
-        }
-      }
-    }
-  }
+//     // Check if we can form the number using available digits
+//     if (tempMap.has(a) && tempMap.get(a) > 0) {
+//       tempMap.set(a, tempMap.get(a) - 1);
+//       if (tempMap.has(b) && tempMap.get(b) > 0) {
+//         tempMap.set(b, tempMap.get(b) - 1);
+//         if (tempMap.has(c) && tempMap.get(c) > 0) {
+//           result.push(i);
+//         }
+//       }
+//     }
+//   }
 
-  return result;
-};
+//   return result;
+// };
 
 // Test the function
-console.log(findEvenNumbers2(digits));
+// console.log(findEvenNumbers2(digits));
