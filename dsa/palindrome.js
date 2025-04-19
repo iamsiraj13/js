@@ -34,3 +34,25 @@ function isPalindrome(x) {
 console.log(isPalindrome(121));
 console.log(isPalindrome(-121));
 console.log(isPalindrome(10));
+
+function newPalindrome(s) {
+  const normalStr = s.replace(/[^\w_]/g, "").toLowerCase();
+  let left = 0;
+  let right = normalStr.length - 1;
+  while (left < right) {
+    if (normalStr[left] !== normalStr[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+
+  return true;
+}
+console.log(newPalindrome("noy_on"));
+console.log(newPalindrome("raceacar"));
+console.log(newPalindrome("raceacar"));
+// raceacar
+// aceaca
+// ceac
+// ea /!== false (not palindrome)

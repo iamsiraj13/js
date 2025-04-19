@@ -11,4 +11,4 @@ var countKDifference = function (nums, k) {
 };
 const nums = [1, 2, 2, 1];
 const k = 1;
-countKDifference(nums, k);
+console.log(countKDifference(nums, k));
