@@ -7,7 +7,7 @@ function lengthOfLongestSubstring(s) {
   while (right < s.length) {
     if (!seen.has(s[right])) {
       seen.add(s[right]);
-      maxLen = Math.max(maxLen, right - left + 1);
+      maxLen = Math.max(maxLen, seen.size);
       right++;
     } else {
       seen.delete(s[left]);
@@ -27,6 +27,3 @@ console.log(lengthOfLongestSubstring("abcabcbb")); // Output: 3
 
 
 */
-
-
-
