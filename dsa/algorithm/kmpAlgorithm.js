@@ -1,61 +1,49 @@
 /**
  * @kmpAlgorightm
  */
+// Example usage:
 
-function computeLPSArray(pattern) {
-  const lps = new Array(pattern.length).fill(0);
-  let len = 0; // Length of the previous longest prefix suffix
+function buildPrefixTable(s) {
+  const table = [0];
   let i = 1;
-
-  while (i < pattern.length) {
-    if (pattern[i] === pattern[len]) {
-      len++;
-      lps[i] = len;
+  let j = 0;
+  while (i < s.length) {
+    if (s[i] === s[j]) {
+      j++;
+      table[i] = j;
       i++;
+    } else if (j > 0) {
+      j = table[j - 1];
     } else {
-      if (len !== 0) {
-        len = lps[len - 1];
-      } else {
-        lps[i] = 0;
-        i++;
-      }
+      table[i] = 0;
+      i++;
     }
   }
-  console.log(lps);
-  return lps;
+  console.log(table);
+  return table;
 }
 
-function KMPSearch(text, pattern) {
-  const M = pattern.length;
-  const N = text.length;
+function strStr(string, subString) {
+  if (subString === "") return 0;
 
-  // Create LPS array
-  const lps = computeLPSArray(pattern);
-
-  let i = 0; // Index for text
-  let j = 0; // Index for pattern
-
-  while (i < N) {
-    if (pattern[j] === text[i]) {
+  const prefixTable = buildPrefixTable(subString);
+  let j = 0;
+  let i = 0;
+  while (i < string.length && j < subString.length) {
+    if (string[i] === subString[j]) {
       i++;
       j++;
-    }
-
-    if (j === M) {
-      console.log(`Pattern found at index ${i - j}`);
-      j = lps[j - 1];
-    } else if (i < N && pattern[j] !== text[i]) {
-      if (j !== 0) {
-        j = lps[j - 1];
-      } else {
-        i++;
-      }
+    } else if (j > 0) {
+      j = prefixTable[j - 1];
+    } else {
+      i++;
     }
   }
+  return j === subString.length ? i - j : -1;
 }
 
-// Example usage:
-const text = "ABABDABACDABABCABAB";
-const pattern = "ABABCABAB";
+const text = "aabaabaaab";
+const pattern = "aabaaab";
+console.log(strStr(text, pattern));
 
 // console.log(KMPSearch(text, pattern));

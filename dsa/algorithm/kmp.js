@@ -14,8 +14,8 @@ Output: -1
 Explanation: "leeto" did not occur in "leetcode", so we return -1.
  */
 
-const haystack = "sirajul";
-const needle = "jul";
+const haystack = "hello";
+const needle = "lol";
 
 // const haystack = "leetcode";
 // const needle = "leeto";
@@ -25,6 +25,7 @@ var strStr = function (haystack, needle) {
   for (let i = 0; i <= haystack.length - needle.length; i++) {
     let j = 0;
     for (j; j < needle.length; j++) {
+      console.log(haystack[i + j]);
       if (haystack[i + j] !== needle[j]) break;
     }
     if (j === needle.length) return i;
