@@ -30,10 +30,12 @@ var romanToInt = function (s) {
     M: 1000,
   };
   let str = s.split("");
+  console.log(str);
 
   for (let i = 0; i < str.length; i++) {
     let current = str[i];
     let next = str[i + 1];
+
     if (roman[current] < roman[next]) {
       sum += roman[next] - roman[current];
       i++;
