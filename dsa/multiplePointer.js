@@ -41,7 +41,7 @@ function sumZero(arr) {
 }
 // const arr = [-3, -2, -1, 0, 1, 2, 3];
 const arr = [-2, 0, 2, 3];
-``;
+
 console.log(sumZero(arr));
 
 function areThereDuplicate(arr) {
